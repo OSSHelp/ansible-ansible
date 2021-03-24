@@ -1,0 +1,35 @@
+---
+- name: install dependencies
+  apt:
+    state: present
+    update_cache: true
+    cache_valid_time: 86400
+    name:
+      - python3-pip
+      - libssl-dev
+      - python-setuptools
+      - python3-setuptools
+
+- name: install Ansible
+  pip:
+    executable: pip3
+    name:
+      - ansible>={{ minimal_version }}
+
+- name: install additional pip modules
+  pip:
+    executable: pip3
+    name: "{{ extra_packages }}"
+
+- name: install mitogen
+  unarchive:
+    src: "{{ mitogen_tar_url }}"
+    remote_src: yes
+    dest: /usr/local/lib
+    creates: /usr/local/lib/mitogen
+    owner: root
+    group: root
+    extra_opts:
+      - --transform
+      - "s/mitogen-{{ mitogen_version }}/mitogen/"
+  when: ansible_mitogen_support|default(false)

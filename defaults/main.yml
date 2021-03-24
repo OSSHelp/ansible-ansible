@@ -1,0 +1,8 @@
+---
+# defaults file for ansible
+minimal_version: 2.8.1
+extra_packages:
+  - jmespath>=0.9.4
+
+mitogen_version: "0.2.9"
+mitogen_tar_url: "https://networkgenomics.com/try/mitogen-{{ mitogen_version }}.tar.gz"

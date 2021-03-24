@@ -1,0 +1,6 @@
+[defaults]
+{% if ansible_mitogen_support|default(false) %}strategy_plugins = /usr/local/lib/mitogen/ansible_mitogen/plugins/strategy
+{% endif %}
+{% if ansible_mitogen_support|default(false) and ansible_mitogen_strategy_by_default|default(false) %}strategy = mitogen_free
+interpreter_python = /usr/bin/python3
+{% endif %}

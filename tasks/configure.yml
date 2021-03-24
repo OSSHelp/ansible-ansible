@@ -1,0 +1,11 @@
+---
+- name: config dir creation
+  file:
+    path: /etc/ansible
+    state: directory
+    mode: 0755
+
+- name: configuration deploy
+  template:
+    src: ansible.cfg.j2
+    dest: /etc/ansible/ansible.cfg
