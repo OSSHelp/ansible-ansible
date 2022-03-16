@@ -5,4 +5,4 @@ extra_packages:
   - jmespath>=0.9.4
 
 mitogen_version: "0.2.9"
-mitogen_tar_url: "https://networkgenomics.com/try/mitogen-{{ mitogen_version }}.tar.gz"
+mitogen_tar_url: "https://files.pythonhosted.org/packages/source/m/mitogen/mitogen-{{ mitogen_version }}.tar.gz"
